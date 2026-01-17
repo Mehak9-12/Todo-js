@@ -3,7 +3,7 @@ const myTodo = document.querySelector('.todo'); // add new task
 const inputTaskEl = document.querySelector('#text'); //enter task
 const priorityEl = document.querySelector('#priority'); //priority tasks
 const resetButton = document.querySelector('#reset'); // reset button
-let arrTask = JSON.parse(localStorage.getItem('tasks')) || [];
+let arrTask = JSON.parse(localStorage.getItem('tasks')) || []; // local storage converts into string so to convert back to array we use json
 function saveTask() {
   localStorage.setItem('tasks', JSON.stringify(arrTask));
 }
@@ -57,7 +57,7 @@ myTodo.addEventListener('click', () => {
   inputTaskEl.focus(); //focus mouse to input again
 });
 function toggleTask(index) {
-  arrTask[index].completed = !arrTask[index].completed;
+  arrTask[index].completed = !arrTask[index].completed; //true->false
   saveTask();
   renderTask();
 }
